@@ -7,7 +7,7 @@ Solution to this task https://github.com/engetoacademy/pythontask
 Sample game
 -----------
 
-'''
+```
 Hi there!
 Let's play a bulls and cows game.
 I've generated a random 4-digit number for you.
@@ -31,4 +31,4 @@ Correct, you've guessed the right number in 6 guesses!
 That's really good.
 Do you want to play again? (Y/N) n
 Thank you for playing! Bye bye.
-'''
+```
