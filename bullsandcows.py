@@ -17,6 +17,7 @@ Let's play a bulls and cows game.""")
     while True:
         # Game loop
         rann = rngen(dn)
+        rann = 6305
         print("I've generated a random {:}-digit number for you.\nGuess that number".format(dn)) 
        
         guess = 1	
@@ -46,7 +47,7 @@ Let's play a bulls and cows game.""")
 
 def rngen(n):
     # Generates n-digit integer, without repeating numbers
-    rn = []    # muze zacinat 0
+    rn = []
     while len(rn) < n:
         newnum = ( str(random.randint(0,9)) ) 
         if newnum not in rn and not (len(rn) == 0 and int(newnum) == 0): rn.append(newnum)
