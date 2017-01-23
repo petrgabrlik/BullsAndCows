@@ -17,7 +17,6 @@ Let's play a bulls and cows game.""")
     while True:
         # Game loop
         rann = rngen(dn)
-        rann = 6305
         print("I've generated a random {:}-digit number for you.\nGuess that number".format(dn)) 
        
         guess = 1	
