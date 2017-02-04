@@ -6,9 +6,8 @@
 # Date: 18.1.2017
 
 import random
-import os.path
 
-debugmode = True
+debugmode = False
 
 def main():
     # The game
@@ -90,7 +89,6 @@ def saveresults(name, guess):
     finally:
         print(name, guess, sep="\t", file=resultsfile)
         resultsfile.close()
-
 
 def isdebugmode():
     # Checkes if debugmode flag is set
