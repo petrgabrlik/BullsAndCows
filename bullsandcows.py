@@ -31,6 +31,8 @@ Let's play a bulls and cows game.""")
                 print("Correct, you've guessed the right number in {:} {:}!".format(guess, 'guess' if guess == 1 else 'guesses'))
                 print("That's {:}.".format(evaluation(guess)))
                 name = input("Enter your name: ")
+                if len(name) > 7:
+                    name = name[:7]
                 saveresults(name, guess)
                 print("\n**** RESULTS ****")
                 print(open("results.txt", "r").read())
