@@ -62,7 +62,7 @@ def usrinput(n):
     # Reads user's 4-digit integer, repeating numbers is not allowed
     while True:
         try:
-            usrn = abs(int(input()))
+            usrn = abs(int(input(">>> ")))
             if len(str(usrn)) > n: print('Too long. Please enter {:}-digit integer.'.format(n))
             elif len(str(usrn)) < n: print('Too short. Please enter {:}-digit integer.'.format(n))
             elif True in [True for num in str(usrn) if str(usrn).count(num) > 1] : print('Numbers must not be repeated.')
