@@ -17,7 +17,7 @@ Let's play a bulls and cows game.""")
     while True:
         # Game loop
         rann = rngen(dn)
-        #print("(Tajne cislo: " + str(rann) + ")")
+        print("(Secret number, for debugging only: " + str(rann) + ")")
         print("I've generated a random {:}-digit number for you.\nGuess that number".format(dn))
 
         guess = 1
@@ -29,6 +29,7 @@ Let's play a bulls and cows game.""")
                 print("That's {:}.".format(evaluation(guess)))
                 name = input("Enter your name: ")
                 saveresults(name, guess)
+                print("\n**** RESULTS ****")
                 print(open("results.txt", "r").read())
                 break
             else:
@@ -76,6 +77,10 @@ def evaluation(n):
 
 def saveresults(name, guess):
     # Saves results to file
+    try:
+        open("results.txt", "r")
+    except:
+        print("NAME", "GUESSES", sep="\t", file=open("results.txt", "a"))
     print(name, guess, sep="\t", file=open("results.txt", "a"))
 
 if __name__ == "__main__":
