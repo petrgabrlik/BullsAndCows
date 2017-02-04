@@ -6,7 +6,7 @@
 # Date: 18.1.2017
 
 import random
-
+import os.path
 
 debugmode = False
 
@@ -82,13 +82,16 @@ def evaluation(n):
 
 def saveresults(name, guess):
     # Saves results to file
-    try:
-        open("results.txt", "r")
-    except:
-        print("NAME", "GUESSES", sep="\t", file=open("results.txt", "a"))
-    print(name, guess, sep="\t", file=open("results.txt", "a"))
+    if not os.path.exists("results.txt"):
+        resultsfile = open("results.txt", "a")
+        print("NAME", "GUESSES", sep="\t", file=resultsfile)
+    else:
+        resultsfile = open("results.txt", "a")
+    print(name, guess, sep="\t", file=resultsfile)
+    resultsfile.close()
 
 def isdebugmode():
+    # Checkes if debugmode flag is set
     if debugmode:
         return 1
     else:
