@@ -8,6 +8,8 @@
 import random
 
 
+debugmode = False
+
 def main():
     # The game
     dn = 4
@@ -17,7 +19,8 @@ Let's play a bulls and cows game.""")
     while True:
         # Game loop
         rann = rngen(dn)
-        print("(Secret number, for debugging only: " + str(rann) + ")")
+        if isdebugmode():
+            print("(Secret number, for debugging only: " + str(rann) + ")")
         print("I've generated a random {:}-digit number for you.\nGuess that number".format(dn))
 
         guess = 1
@@ -82,6 +85,12 @@ def saveresults(name, guess):
     except:
         print("NAME", "GUESSES", sep="\t", file=open("results.txt", "a"))
     print(name, guess, sep="\t", file=open("results.txt", "a"))
+
+def isdebugmode():
+    if debugmode:
+        return 1
+    else:
+        return 0
 
 if __name__ == "__main__":
     main()
