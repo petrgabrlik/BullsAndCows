@@ -8,7 +8,7 @@
 import random
 import os.path
 
-debugmode = False
+debugmode = True
 
 def main():
     # The game
@@ -53,7 +53,6 @@ Let's play a bulls and cows game.""")
             print('Thank you for playing! Bye bye.')
             break
 
-
 def rngen(n):
     # Generates n-digit integer, without repeating numbers
     rn = []
@@ -61,7 +60,6 @@ def rngen(n):
         newnum = ( str(random.randint(0,9)) )
         if newnum not in rn and not (len(rn) == 0 and int(newnum) == 0): rn.append(newnum)
     return int(''.join(rn))
-
 
 def usrinput(n):
     # Reads user's 4-digit integer, repeating numbers is not allowed
@@ -82,13 +80,17 @@ def evaluation(n):
 
 def saveresults(name, guess):
     # Saves results to file
-    if not os.path.exists("results.txt"):
+    try:
+        resultsfile = open("results.txt")
+    except FileNotFoundError:
         resultsfile = open("results.txt", "a")
         print("NAME", "GUESSES", sep="\t", file=resultsfile)
     else:
         resultsfile = open("results.txt", "a")
-    print(name, guess, sep="\t", file=resultsfile)
-    resultsfile.close()
+    finally:
+        print(name, guess, sep="\t", file=resultsfile)
+        resultsfile.close()
+
 
 def isdebugmode():
     # Checkes if debugmode flag is set
