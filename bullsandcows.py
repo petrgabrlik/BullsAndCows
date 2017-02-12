@@ -7,7 +7,7 @@
 
 import random
 
-debugmode = False
+DEBUG = False
 
 def main():
     # The game
@@ -18,7 +18,7 @@ Let's play a bulls and cows game.""")
     while True:
         # Game loop
         rann = rngen(dn)
-        if isdebugmode():
+        if isdebug():
             print("(Secret number, for debugging only: " + str(rann) + ")")
         print("I've generated a random {:}-digit number for you.\nGuess that number".format(dn))
 
@@ -90,9 +90,9 @@ def saveresults(name, guess):
         print(name, guess, sep="\t", file=resultsfile)
         resultsfile.close()
 
-def isdebugmode():
-    # Checkes if debugmode flag is set
-    if debugmode:
+def isdebug():
+    # Checkes if DEBUG flag is set
+    if DEBUG:
         return 1
     else:
         return 0
