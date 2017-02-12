@@ -1,4 +1,4 @@
-from bullsandcows import isdebugmode
+from bullsandcows import isdebug
 
-def test_isdebugmode():
-    assert isdebugmode() == 0, "program is in debug mode, this should not be commited"
+def test_isdebug():
+    assert isdebug() == 0, "program is in debug mode, this should not be commited"
